@@ -21,6 +21,9 @@ from rest_framework import routers
 from apirest import views
 from clientes.views import ClienteListView
 
+from django.conf import settings
+from django.conf.urls.static import static
+
 router = routers.DefaultRouter()
 router.register('clientes', views.ClienteViewSet) #Para llamr a la  ruta y la vista 
 
@@ -30,4 +33,4 @@ urlpatterns = [
     path('clientes',ClienteListView.as_view(template_name="clientes/index.html"),name='listar')
   #  path('api-auth/', include('rest_framework.urls'))
     
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -1,1 +1,1 @@
-web: gunicorn APIRestDjango.wsgi
+web: gunicorn APIRestDjango.wsgi --log-file -
